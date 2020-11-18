@@ -139,6 +139,6 @@ public class MainController {
 			Long dogId = dog.getDogId();
 			
 			srepo.deleteById(skillId);
-			return "redirect:/dogpage/" + dogId;
+			return "redirect:../dogpage/" + dogId;
 		}
 }
