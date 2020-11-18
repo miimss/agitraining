@@ -1,0 +1,31 @@
+#signin {
+	margin: auto;
+}
+
+.btn {
+	background-color: #061356;
+	color: white;
+	align: right;
+}
+.btn:hover {
+	background-color: #4B0082;
+	color: #E6E6FA;
+}
+
+.navbar {
+	background-color: #061356;
+	color: white;
+	border-color: white;
+}
+
+.navbar-brand {
+	color: white;
+}
+
+.navbar-brand:hover {
+	color: #E6E6FA;
+}
+
+#skillName, #skillDescription, #skillLevel {
+	width: 80%;
+}
