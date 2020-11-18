@@ -140,4 +140,5 @@ public class MainController {
 			
 			srepo.deleteById(skillId);
 			return "redirect:/dogpage/" + dogId;
+		}
 }
