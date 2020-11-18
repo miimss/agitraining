@@ -120,6 +120,7 @@ public class MainController {
 		return "redirect:/dogpage/" + dogId;
 	}
 	
+	//Edit selected skill
 	@RequestMapping(value = "/editskill/{id}", method = RequestMethod.GET)
 	public String editSkill(@PathVariable("id") Long skillId, Model model) {
 		Skill skill = srepo.findBySkillId(skillId);
@@ -129,4 +130,14 @@ public class MainController {
 		
 		return "editskill";
 	}
+	
+	//Delete selected skill
+		@RequestMapping(value = "/deleteskill/{id}", method = RequestMethod.GET)
+		public String deleteSkill(@PathVariable("id") Long skillId, Model model) {
+			Skill skill = srepo.findBySkillId(skillId);
+			Dog dog = skill.getDog();
+			Long dogId = dog.getDogId();
+			
+			srepo.deleteById(skillId);
+			return "redirect:/dogpage/" + dogId;
 }
