@@ -79,7 +79,7 @@ public class MainController {
 		return "redirect:../home";
 	}
 	
-	//Get selected dogs skills and pass them to dogpage
+	//Get selected dogs skills, separate them by skill level and pass them to dogpage
 	@RequestMapping(value="/dogpage/{id}", method = RequestMethod.GET)
 	public String dogpage(@PathVariable("id") Long dogId, Model model) {
 		Optional<Dog> dog = drepo.findById(dogId);
@@ -112,6 +112,7 @@ public class MainController {
 		
 		return "addskill";
 	}
+	
 	//Save new skill to selected dog
 	@RequestMapping(value="/saveskill", method = RequestMethod.POST)
     public String saveSkill(Skill skill) {

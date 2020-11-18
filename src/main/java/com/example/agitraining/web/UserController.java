@@ -27,6 +27,7 @@ public class UserController {
         return "register";
     }
 	
+	//Check and save users credentials
 	@RequestMapping(value = "/saveuser", method = RequestMethod.POST)
     public String save(@Valid @ModelAttribute("userDto") UserDto userDto, BindingResult bindingResult) {
     	if (!bindingResult.hasErrors()) {

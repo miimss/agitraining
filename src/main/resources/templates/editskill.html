@@ -45,6 +45,9 @@
 				<input type="hidden" id="dog" th:value="${dog.dogId}" th:attr="name='dog'" /> 	
 				<input type="submit" value="Tallenna" class="btn btn-success"></input>			
 			</form><br />
+			
+			<!-- Go back to dog's page -->
+			
 			<a th:href = "@{/dogpage/{id}(id=${dog.dogId})}" class="btn">Takaisin</a>
 		</div>
 	</div>

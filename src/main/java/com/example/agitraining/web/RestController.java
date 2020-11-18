@@ -27,32 +27,37 @@ public class RestController {
 	@Autowired
 	private SkillRepository srepo;
 	
-	
+	//Get list of all users
 	@RequestMapping(value="/users", method = RequestMethod.GET)
     public @ResponseBody List<User> userListRest() {
 		return (List<User>) urepo.findAll();
 	}
 	
+	//Get list of all dogs
 	@RequestMapping(value="/dogs", method = RequestMethod.GET)
     public @ResponseBody List<Dog> dogListRest() {
 		return (List<Dog>) drepo.findAll(); 
 	}
 	
+	//Get list of all skills
 	@RequestMapping(value="/skills", method = RequestMethod.GET)
     public @ResponseBody List<Skill> skillListRest() {
 		return (List<Skill>) srepo.findAll();
 	}
 	
+	//Get selected user
 	@RequestMapping(value="/users/{id}", method = RequestMethod.GET)
     public @ResponseBody Optional<User> findUserRest(@PathVariable("id") Long userId) { 
     	return urepo.findById(userId);
     }
 	
+	//Get selected dog
 	@RequestMapping(value="/dogs/{id}", method = RequestMethod.GET)
     public @ResponseBody Optional<Dog> findDogRest(@PathVariable("id") Long dogId) { 
     	return drepo.findById(dogId);
     }
 	
+	//Get selected skill
 	@RequestMapping(value="/skills/{id}", method = RequestMethod.GET)
     public @ResponseBody Optional<Skill> findSkillRest(@PathVariable("id") Long skillId) { 
     	return srepo.findById(skillId);

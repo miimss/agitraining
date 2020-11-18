@@ -28,6 +28,7 @@
 	 	</div>
 		
 <!--  Form to add new skill to selected dog -->
+
 		<div class="col-md-6">
 			<form th:object="${skill}" th:action="@{../saveskill}" action="#" method="post">		  	
 				<label for="skillName">Taito</label><br />
@@ -43,6 +44,9 @@
 				<input type="hidden" id="dog" th:value="${dog.dogId}" th:attr="name='dog'" /> <br/>	
 				<input type="submit" value="Tallenna" class="btn"></input>			
 			</form><br/>
+			
+			<!--  Go back to dog's pag -->
+			
 			<a th:href = "@{/dogpage/{id}(id=${dog.dogId})}" class="btn">Takaisin</a>
 		</div>
 	</div>

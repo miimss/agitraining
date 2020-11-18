@@ -22,15 +22,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
         http
-	        .authorizeRequests().antMatchers("/css/**", "/images/**").permitAll()
+	        .authorizeRequests().antMatchers("/css/**", "/images/**").permitAll()//Access to css and images to all
 	        .and()
-	        .authorizeRequests().antMatchers("/register", "/saveuser").permitAll()
+	        .authorizeRequests().antMatchers("/register", "/saveuser").permitAll()//Access to ragistration to all
 	        .and()
 	        .authorizeRequests().anyRequest().authenticated()
 	        .and()
 	    .formLogin()
 	        .loginPage("/login")
-	        .defaultSuccessUrl("/home")
+	        .defaultSuccessUrl("/home", true)
 	        .permitAll()
 	        .and()
 	    .logout()

@@ -34,9 +34,15 @@
 				<div class="col">
 					<h3>Koiran taidot</h3>
 				</div>
+				
+				<!--  Add new skill to a dog -->
+				
 				<div class="col">
 					<a th:href = "@{/addskill/{id}(id=${dog.dogId})}" class="btn">Lisää taito</a>
-					<a th:href = "@{/home}" class="btn">Etusivulle</a>
+					
+					<!-- Go back to homepage -->
+					
+					<a th:href = "@{/home}" class="btn">Etusivulle</a> <!-- Go back to home-page -->
 				</div>
 			</div>
 			
@@ -50,10 +56,16 @@
 				<tr th:each = "skill: ${newSkills}"> 
 					<td th:text = "${skill.skillName}"></td>
 					<td th:text = "${skill.skillDescription}"></td>
-					<td>			
+					<td>	
+						
+					<!-- Edit selected skill -->	
+					
 						<a th:href = "@{/editskill/{id}(id=${skill.skillId})}" class="btn">Muokkaa</a>
 					</td>
-					<td>			
+					<td>
+						
+					<!-- Delete selected skill -->	
+						
 						<a th:href = "@{/deleteskill/{id}(id=${skill.skillId})}" class="btn">Poista</a>
 					</td>			
 				</tr>
@@ -70,9 +82,15 @@
 					<td th:text = "${skill.skillName}"></td>
 					<td th:text = "${skill.skillDescription}"></td>
 					<td>			
+					
+					<!-- Edit selected skill -->
+					
 						<a th:href = "@{/editskill/{id}(id=${skill.skillId})}" class="btn">Muokkaa</a>
 					</td>
-					<td>			
+					<td>		
+					
+					<!-- Delete selected skill -->
+						
 						<a th:href = "@{/deleteskill/{id}(id=${skill.skillId})}" class="btn">Poista</a>
 					</td>			
 				</tr>
@@ -88,10 +106,16 @@
 				<tr th:each = "skill: ${readySkills}"> 
 					<td th:text = "${skill.skillName}"></td>
 					<td th:text = "${skill.skillDescription}"></td>
-					<td>			
+					<td>	
+					
+					<!-- Edit selected skill -->
+							
 						<a th:href = "@{/editskill/{id}(id=${skill.skillId})}" class="btn">Muokkaa</a>
 					</td>
-					<td>			
+					<td>		
+					
+					<!-- Delete selected skill -->
+						
 						<a th:href = "@{/deleteskill/{id}(id=${skill.skillId})}" class="btn">Poista</a>
 					</td>			
 				</tr>

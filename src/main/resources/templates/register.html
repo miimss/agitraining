@@ -14,6 +14,9 @@
 			<h1>Agilitytreenitaidot</h1><br/>
 		    
 		    <h4>Luo uusi tunnus</h4>
+		    
+		    <!-- Form for creating new user -->
+		    
 			<form th:object="${userDto}" th:action="@{/saveuser}" action="#" method="post">
 				<div>
 					<label> Käyttäjätunnus:<input type="text" th:field="*{username}" class="form-control"/></label>
