@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -133,13 +134,30 @@ public class MainController {
 	}
 	
 	//Delete selected skill
-		@RequestMapping(value = "/deleteskill/{id}", method = RequestMethod.GET)
-		public String deleteSkill(@PathVariable("id") Long skillId, Model model) {
-			Skill skill = srepo.findBySkillId(skillId);
-			Dog dog = skill.getDog();
-			Long dogId = dog.getDogId();
-			
-			srepo.deleteById(skillId);
-			return "redirect:../dogpage/" + dogId;
+	@RequestMapping(value = "/deleteskill/{id}", method = RequestMethod.GET)
+	public String deleteSkill(@PathVariable("id") Long skillId, Model model) {
+		Skill skill = srepo.findBySkillId(skillId);
+		Dog dog = skill.getDog();
+		Long dogId = dog.getDogId();
+		
+		srepo.deleteById(skillId);
+		return "redirect:../dogpage/" + dogId;
+	}
+	
+	//Go to allUsers page, if ADMIN
+	@RequestMapping(value = "/admin/allusers")
+	@PreAuthorize("hasRole('ADMIN')")
+	public String allUsers(Model model) {
+		model.addAttribute("users", urepo.findAll());		
+		
+		return "userlist";
+	}	
+	
+	//Delete selected user
+		@RequestMapping(value = "/admin/deleteuser/{id}", method = RequestMethod.GET)
+		@PreAuthorize("hasRole('ADMIN')")
+		public String deleteUser(@PathVariable("id") Long userId, Model model) {
+			urepo.deleteById(userId);
+			return "redirect:../admin/allusers";
 		}
 }
